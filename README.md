@@ -55,6 +55,19 @@ Golang, JS (NextJS)
 
 ## The task can be found [here](https://github.com/adefemi171/web-app/blob/main/Docs/Calipsa%20-%20Junior%20Devops%20Technical%20Assessment.1611157693.pdf)
 
+
+## Folder structure
+
+1. Docs: This folder a documents: the task given.
+
+2. frontend: This folder house the frontend code of the application.
+
+3. helm: This folder contains the helm chart.
+
+4. src: This folder contain the backend code of the application.
+
+
+
 # How to setup project and run locally
 
 ### Clone the repository 
@@ -122,7 +135,7 @@ docker-compose up
 And visit the endpoint in your browser for both front end and backend respectively as specified above
 
 # How to setup project using helm
-1. I used [Kind]() to create my cluster
+1. I used [Kind](https://kind.sigs.k8s.io/) to create my cluster
 2. In the root folder run:
 ```
 kind create cluster --config kind.yaml
@@ -143,6 +156,9 @@ kubectl port-forward svc/<service_name> 8080:8080 3000:3000 9110:9110
 
 And visit the endpoint in your browser for both front end and backend respectively as specified above
 
+
+## Proposed Improvement
+1. Set up Ga pipeline for auto deployment to dockerhub per PR made to main branch
 
 NOTE: [Helm](https://helm.sh/docs/intro/install/), [Docker](https://docs.docker.com/get-docker/), [Golang](https://golang.org/doc/install), [Node](https://nodejs.org/en/download/), and [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) needs to be installed to run this application
 
