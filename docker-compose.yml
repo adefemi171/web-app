@@ -1,13 +1,13 @@
 version: "3.3"
    
 services:
-  web:
-    build: .
+  frontend:
+    build: ./frontend
     image: adefemi171/web-app:v3
     ports:
       - "3000:3000"
-  api:
-    build: .
+  backend:
+    build: ./src
     image: adefemi171/web-api:v2
     ports:
       - "8080:8080"
