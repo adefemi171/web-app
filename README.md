@@ -35,7 +35,7 @@ Golang, JS (NextJS)
             ┣ 📜Dockerfile
             ┣ 📜package.json
             ┣ 📜package-lock.json
-            
+
             📦src
             ┣ 📦pkg
                 ┣ 📦controller
@@ -53,7 +53,7 @@ Golang, JS (NextJS)
         ┣ 📜go.sum
         ┣ 📜README.md
 
-## The task can be found [here]()
+## The task can be found [here](https://github.com/adefemi171/web-app/blob/main/Docs/Calipsa%20-%20Junior%20Devops%20Technical%20Assessment.1611157693.pdf)
 
 # How to setup project and run locally
 
