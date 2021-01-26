@@ -3,12 +3,13 @@ package controller
 import (
 	"encoding/json"
 	"net/http"
-	"fmt"
 
 	"github.com/gin-gonic/gin"
+	log "github.com/sirupsen/logrus"
 
 )
 
+// User struct for User details
 type User struct {
 	Username  string `json:"username"`
 	FirstName string `json:"firstname"`
@@ -31,6 +32,7 @@ var userSlice = []User{
 	},
 }
 
+// Welcome endpoint
 func Welcome(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"status":  200,
@@ -39,6 +41,7 @@ func Welcome(c *gin.Context) {
 	return
 }
 
+// NotFound endpoint
 func NotFound(c *gin.Context) {
 	c.JSON(http.StatusNotFound, gin.H{
 		"status":  404,
@@ -47,6 +50,7 @@ func NotFound(c *gin.Context) {
 	return
 }
 
+// UserHandler endpoint
 func UserHandler(c *gin.Context) {
 	var w http.ResponseWriter = c.Writer
 	enc := json.NewEncoder(w)
@@ -54,16 +58,12 @@ func UserHandler(c *gin.Context) {
 	enc.Encode(userSlice)
 }
 
-
-func GetHeader(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "%s %s %s \n", r.Method, r.URL, r.Proto)
-    //Iterate over all header fields
-    for k, v := range r.Header {
-        fmt.Fprintf(w, "Header field %q, Value %q\n", k, v)
-    }
-
-    fmt.Fprintf(w, "Host = %q\n", r.Host)
-    fmt.Fprintf(w, "RemoteAddr= %q\n", r.RemoteAddr)
-    //Get value for a specified token
-    fmt.Fprintf(w, "\n\nFinding value of \"Accept\" %q", r.Header["Accept"])
+// GetHeader to display header
+func GetHeader(c *gin.Context) {
+	res := gin.H{}
+	for k, vals := range c.Request.Header {
+		log.Infof("%s", k)
+		res[k] = vals
+	}
+	c.JSON(200, res)
 }

@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	// "flag"
 
 	"net/http"
 	"os"
@@ -20,6 +19,11 @@ import (
 
 var (
 	g errgroup.Group
+	reqProcessed = promauto.NewCounter(prometheus.CounterOpts{
+		//name of number of requests metric
+		Name: "app_number_of_requests",
+		Help: "The total number of processed requests",
+	})
 )
 
 func webRoute() http.Handler {
@@ -48,14 +52,7 @@ func prometheusRoute() http.Handler {
 	return srv
 }
 
-var (
-	reqProcessed = promauto.NewCounter(prometheus.CounterOpts{
-		//name of number of requests metric
-		Name: "app_number_of_requests",
-		Help: "The total number of processed requests",
-	})
-)
-
+// main function
 func main() {
 	webServer := &http.Server{
 		Addr:         fmt.Sprintf(":%s", GetEnv("APP_PORT", "8080")),
