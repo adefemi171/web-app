@@ -15,18 +15,7 @@ Golang, JS (NextJS)
     📦web-app
         📦docs
             ┣ 📜
-        📦api
-            ┣ 📦pkg
-                ┣ 📦controller
-                    ┗ 📜controller.go
-                ┣ 📦route
-                    ┗ 📜route.go
-            ┗ 📜.env.example
-            ┗ 📜Dockerfile
-            ┗ 📜go.mod
-            ┗ 📜go.sum
-            ┗ 📜main.go
-        📦web
+        📦frontend
             ┣ 📦components
                 ┗ 📜link.js
             ┣ 📦pages
@@ -46,7 +35,18 @@ Golang, JS (NextJS)
             ┣ 📜Dockerfile
             ┣ 📜package.json
             ┣ 📜package-lock.json
-            ┣ 📜README.md
+            
+            📦src
+            ┣ 📦pkg
+                ┣ 📦controller
+                    ┗ 📜controller.go
+                ┣ 📦route
+                    ┗ 📜route.go
+            ┗ 📜.env.example
+            ┗ 📜Dockerfile
+            ┗ 📜go.mod
+            ┗ 📜go.sum
+            ┗ 📜main.go
         ┣ 📜.gitignore
         ┣ 📜docker-compose.yml
         ┣ 📜go.mod

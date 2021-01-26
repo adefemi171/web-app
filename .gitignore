@@ -34,3 +34,6 @@ frontend/**/.env.production.local
 frontend/**/.vercel
 
 
+src/**/.env
+src/**/env.list
+
