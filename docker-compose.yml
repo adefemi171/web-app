@@ -1,0 +1,15 @@
+version: "3.3"
+   
+services:
+  web:
+    build: .
+    image: adefemi171/web-app:v2
+    ports:
+      - "3000:3000"
+  api:
+    build: .
+    image: adefemi171/web-api:v1 
+    ports:
+      - "8080:8080"
+      - "9110:9110"
+

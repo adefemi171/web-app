@@ -1,0 +1,25 @@
+.table{
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+.td, .th{
+    border: 1px solid #ecf0ef;
+    padding: 10px;
+    min-width: 250px;
+}
+
+.tr:nth-child(even){
+    background-color: #ecf0ef;
+}
+
+.container{
+    display: grid;
+    justify-items: center;
+}
+
+.main{
+    width: 60%;
+    margin-top: 60px;
+}
