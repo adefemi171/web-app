@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled }}
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ include "app.appName" . }}
@@ -21,16 +21,25 @@ spec:
     - http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: {{ include "app.serviceName" . }}
-              servicePort: {{ .Values.service.frontend.targetPort }}
+              service:
+                name: {{ include "app.serviceName" . }}
+                port:
+                  number: {{ .Values.service.frontend.targetPort }}
           - path: /table
+            pathType: Prefix
             backend:
-              serviceName: {{ include "app.serviceName" . }}
-              servicePort: {{ .Values.service.httpPort.targetPort }}
+              service:
+                name: {{ include "app.serviceName" . }}
+                port:
+                  number: {{ .Values.service.httpPort.targetPort }}
           - path: /metrics
+            pathType: Prefix
             backend:
-              serviceName: {{ include "app.serviceName" . }}
-              servicePort: {{ .Values.service.prometheus.targetPort }}
+              service:
+                name: {{ include "app.serviceName" . }}
+                port:
+                  number: {{ .Values.service.prometheus.targetPort }}
       host: {{ .Values.ingress.host }}
 {{- end }}
