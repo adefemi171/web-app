@@ -41,7 +41,7 @@ export async function getServerSideProps(context) {
   const { req } = context;
   console.log({ headers: req.headers });
   // console.log({ context, req });
-  const res = await fetch("http://ec2-18-216-164-223.us-east-2.compute.amazonaws.com:8080");
+  const res = await fetch("http://ec2-18-220-106-234.us-east-2.compute.amazonaws.com:8080");
   const data = await res.json();
 
   // Pass data to the page via props

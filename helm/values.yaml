@@ -13,7 +13,7 @@ webapp:
     repository: adefemi171/web-api
 
     ## The tag of the webapp image.
-    tag: "v2"
+    tag: "v3"
 
     ## The pull policy for the webapp image.
     pullPolicy: IfNotPresent
@@ -69,7 +69,7 @@ frontend:
     repository: adefemi171/web-app
 
     ## The tag of the webapp image.
-    tag: "v3"
+    tag: "v4"
 
     ## The pull policy for the webapp image.
     pullPolicy: IfNotPresent
@@ -84,7 +84,7 @@ prometheus:
   create: true
 
   ## Configures the port to scrape the metrics.
-  port: 9113
+  port: 9110
 
 
 rbac:
@@ -135,9 +135,9 @@ service:
   prometheus:
     enable: true
     ## The HTTP port of the front service.
-    port: 9113
+    port: 9110
 
-    targetPort: 9113
+    targetPort: 9110
 
   ## A list of custom ports to expose through the webapp service. Follows the conventional Kubernetes yaml syntax for service ports.
   customPorts: []
