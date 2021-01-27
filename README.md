@@ -156,9 +156,26 @@ kubectl port-forward svc/<service_name> 8080:8080 3000:3000 9110:9110
 
 And visit the endpoint in your browser for both front end and backend respectively as specified above
 
+## The backend is live at 18.220.106.234 with port 8080 for header and 9110 for metrics
+### Routes
+
+* /header [GET]
+* /users [GET]
+* /metrics [GET]
+
+#### Example
+Visit http://18.220.106.234:9110/metrics to see the Prometheus Metric 
+## Metric
+![](Docs/promMetric.png?raw=true)
+
+or http://18.220.106.234:8080/header to see the Response Header
+## Response Header
+![](Docs/header.png?raw=true)
+
+
 
 ## Proposed Improvement
-1. Set up Ga pipeline for auto deployment to dockerhub per PR made to main branch
+1. Set up a pipeline for auto deployment to dockerhub per PR made to main branch
 
 NOTE: [Helm](https://helm.sh/docs/intro/install/), [Docker](https://docs.docker.com/get-docker/), [Golang](https://golang.org/doc/install), [Node](https://nodejs.org/en/download/), and [Kubernetes](https://kubernetes.io/docs/tasks/tools/install-kubectl/) needs to be installed to run this application
 
